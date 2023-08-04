@@ -1,0 +1,2 @@
+INSERT INTO customers (id, name, cep, city, state, district, number) VALUES('fd0ec25f-d5a6-4938-85a7-28ab0f6f44a2', 'Pedro', '49000000', 'Cidade X', 'Estado X', 'Bairro X', 123);
+INSERT INTO customers (id, name, cep, city, state, district, number) VALUES('0f98b02d-0a6e-41dc-840e-7c7e7d3270b4', 'Joao', '49000000', 'Cidade Y', 'Estado Y', 'Bairro Y', 456);

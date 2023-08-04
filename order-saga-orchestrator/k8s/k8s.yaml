@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-saga-orchestrator-dpl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-saga-orchestrator
+  template:
+    metadata:
+      labels:
+        app: order-saga-orchestrator
+    spec:
+      containers:
+        - name: order-saga-orchestrator-container
+          image: registry-container:5000/order-saga-orchestrator-service:v0.1
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "128Mi"
+              cpu: "125m"

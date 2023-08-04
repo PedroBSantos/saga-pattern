@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service-dpl
+spec:
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+        - name: order-service-container
+          image: registry-container:5000/order-service:v0.1
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "128Mi"
+              cpu: "125m"
+          ports:
+            - containerPort: 8080
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service-svc
+spec:
+  selector:
+    app: order-service
+  type: ClusterIP
+  ports:
+    - port: 8080
+      targetPort: 8080
